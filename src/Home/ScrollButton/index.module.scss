@@ -1,0 +1,21 @@
+.icon{
+    position: fixed;
+    
+    top: 25px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: #f3f3f3;
+    border: 1px solid #c3c3c3;
+    background-size: 60%;
+    width: 88px;
+    height: 44px;
+    padding: 16px;
+    background-image: url(./Icons/arrowUp.png);
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}

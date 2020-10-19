@@ -1,0 +1,42 @@
+.main{
+    display: flex;
+    width: 100%;
+    max-width: 920px;
+    padding: 0 0 25px 0;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    max-width: 300px;
+    &__center{
+        display: flex;
+        flex-direction: column;
+        width: 33%;
+        max-width: 300px;
+        margin: 0 10px;
+    }
+}
+.item{
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    max-height: 520px;
+}
+
+
+
+@media (max-width: 980px) {
+  .main{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .column{
+    &__center{
+      margin: 0 4px;
+    }
+  }
+  .item{
+    margin-bottom: 4px;
+  }
+}
