@@ -22,7 +22,6 @@ const SearchComponent = props => {
 		className={styles.input}
 		onPressEnter={ev => {
 			props.onChange(value)
-			console.log(1231231)
 		}}
 		onChange={ev => {
 			setValue(ev.target.value)

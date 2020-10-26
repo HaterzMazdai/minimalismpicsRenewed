@@ -1,24 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './index.module.scss'
-import SearchComponent from './Search/SearchComponent'
-import translate from 'translate';  
-import { message } from 'antd';
+import SearchComponent from './Search/SearchComponent' 
+import { useHistory } from "react-router-dom"
+
 
 
 
 const HeaderComponent = props => {
 
+    const history = useHistory()
+    const [isHome, setIsHome] = useState(history.location.pathname === '/')
+
     return (
         <header className={styles.header} >
-            <div>
+            <div
+            onClick={() => {
+                history.push(isHome ? '/auth' : '')
+                setIsHome(!isHome)
+            }}
+            >
                 minimalispics.
             </div>
-            <SearchComponent
-            onChange={value => {
-                props.onSearch(value)
-            }}
-            delay={1000}
-            />
+            {isHome && (
+                <SearchComponent
+                onChange={value => {
+                    props.onSearch(value)
+                }}
+                delay={1000}
+                />
+            )}
         </header>
     )
 }

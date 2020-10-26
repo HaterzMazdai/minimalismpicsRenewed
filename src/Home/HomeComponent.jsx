@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import Unsplash, { toJson } from 'unsplash-js';
+import Unsplash from 'unsplash-js';
 import styles from './index.module.scss'
 import PostComponent from './Post/PostComponent'
 import ScrollButtonComponent from './ScrollButton/ScrollButtonComponent'
@@ -9,9 +9,15 @@ import ScrollButtonComponent from './ScrollButton/ScrollButtonComponent'
 
 const HomeComponent = props => {
   
+
+  
   const reduxState = useSelector(state => state)
 
-  const unsplash = new Unsplash({ accessKey: 'LuPHM_pd_YAH00c9ssorJV5fYEc0rvK9X0ST1oIFV_s' });
+  const unsplash = new Unsplash({ 
+    accessKey: 'LuPHM_pd_YAH00c9ssorJV5fYEc0rvK9X0ST1oIFV_s',
+    secret: 'dt3IVL8Qv1F-V8J8IZqoYcqQCil1FTkBp0cjBqakaVY',
+    callbackUrl: 'https://haterzmazdai.github.io/minimalismpicsRenewed/auth'
+  });
 
   const [isLoaded, setLoaded] = useState(false)
 
@@ -23,22 +29,16 @@ const HomeComponent = props => {
 
   const [firstColumn, setFirstColumn] = useState({
     posts: [],
-    horizontal: 0,
-    vertical: 0,
     score: 0
   })
 
   const [secondColumn, setSecondColumn] = useState({
     posts: [],
-    horizontal: 0,
-    vertical: 0,
     score: 0
   })
 
   const [thirdColumn, setThirdColumn] = useState({
     posts: [],
-    horizontal: 0,
-    vertical: 0,
     score: 0
   })
 
@@ -51,34 +51,33 @@ const HomeComponent = props => {
       : [page, 30, 'lates']
 
     const load = async () => {
-      unsplash[searchValue ? 'search' : 'photos'][searchValue ? 'photos' : 'listPhotos'](...args).then(res => {
-        console.log(res)
+      unsplash[searchValue ? 'search' : 'photos'][searchValue ? 'photos' : 'listPhotos'](...args).then(res => {        
         if (res.ok) {
           return res.json()
         } else {
           throw new Error('Ошибка запроса')
         }
         
-      }).then(data => {
-        console.log(data, '3123123')
+      }).then(data => {    
         const array = searchValue ? data.results : data;
- 
-        let firstScore = firstColumn.score ? firstColumn.score : 0 
-        let firstArr = firstColumn.posts ? firstColumn.posts : []
 
-        let secondScore = secondColumn.score ? secondColumn.score : 0 
-        let secondArr = secondColumn.posts ? secondColumn.posts : []
+ 
+        let firstScore = firstColumn.score || 0 
+        let firstArr = firstColumn.posts || []
+
+        let secondScore = secondColumn.score || 0 
+        let secondArr = secondColumn.posts || []
         
-        let thirdScore = thirdColumn.score ? thirdColumn.score : 0 
-        let thirdArr = thirdColumn.posts ? thirdColumn.posts : []
+        let thirdScore = thirdColumn.score || 0 
+        let thirdArr = thirdColumn.posts || []
 
         
 
         array.forEach(post => {
-          if (firstScore < thirdScore && firstScore < secondScore || firstScore === thirdScore || firstScore === secondScore) {
+          if ((firstScore < thirdScore && firstScore < secondScore) || firstScore === thirdScore || firstScore === secondScore) {
             firstScore = firstScore + post.height/post.width
             firstArr.push(post)
-          } else if (secondScore < firstScore && secondScore < thirdScore || firstScore === thirdScore || firstScore === secondScore) {
+          } else if ((secondScore < firstScore && secondScore < thirdScore) || firstScore === thirdScore || firstScore === secondScore) {
             secondScore = secondScore + post.height/post.width
             secondArr.push(post)
           } else {
@@ -147,8 +146,7 @@ const HomeComponent = props => {
     const root = window.document.getElementsByTagName('html')[0]
     let isVisible = false
 
-    window.addEventListener('scroll', () => {
-
+    const listener = () => {
       if (root.scrollTop + root.clientHeight >= root.scrollHeight - 800) {
         setUpdating(true)
       }
@@ -160,11 +158,13 @@ const HomeComponent = props => {
         setScrollTopVisible(false)
         isVisible = false
       }
-    })
+    }
 
-  return () => {
-    window.removeEventListener('scroll')
-  }
+    window.addEventListener('scroll', listener)
+
+    return () => {
+      window.removeEventListener('scroll', listener)
+    }
   }, [])
 
   return (

@@ -9,26 +9,28 @@ const PostComponent = props => {
 
   const post = props.post;
 
+  
 
- 
+
 
   useEffect(() => {
-    const thumb = new Image()
-    const regular = new Image()
-    thumb.src = post.urls.thumb
-    regular.src = post.urls.regular
-  }, [])
+    const isMobile = window.innerWidth <= 960 ? true : false
+    if (!isMobile) {
+      const regular = new Image()
+      regular.src = post.urls.regular
+    }
+  }, [post.urls.regular])
 
   return (
     <>
-        <img key={post.id + props.index} src={post.urls.thumb} className={styles.post} 
+        <img alt="" key={post.id + props.index} src={post.urls.thumb} className={styles.post} 
         onClick={() => {          
             setModal(true)
         }}
         />
         <Modal
         visible={isModal}
-        className={styles.postModal + ' ' + 'modal'}
+        className={`${styles.postModal} post`}
         centered
         width={820}
         closable={false}      
@@ -43,9 +45,9 @@ const PostComponent = props => {
           }}
           className={styles.postModal__container} >
             <img
+            alt=""
             onClick={ev => {
               ev.stopPropagation()
-              console.log(props.post)
             }}
             key={post.id + props.index} src={post.urls.regular} className={styles.postModal__img }/>
           </div>

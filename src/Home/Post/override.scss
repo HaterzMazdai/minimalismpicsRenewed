@@ -1,4 +1,4 @@
-.modal{
+.post{
   background-color: transparent !important;
   .ant-modal-content{
     background-color: transparent !important;
@@ -19,7 +19,7 @@
 
 
 @media (max-width: 980px) {
-  .modal{
+  .post{
     .ant-modal-body{
       padding: 8px !important;
     }
