@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css",
-    "main.js": "/minimalismpicsRenewed/static/js/main.a2b043c6.chunk.js",
-    "main.js.map": "/minimalismpicsRenewed/static/js/main.a2b043c6.chunk.js.map",
+    "main.js": "/minimalismpicsRenewed/static/js/main.5bb40466.chunk.js",
+    "main.js.map": "/minimalismpicsRenewed/static/js/main.5bb40466.chunk.js.map",
     "runtime-main.js": "/minimalismpicsRenewed/static/js/runtime-main.cfbbda35.js",
     "runtime-main.js.map": "/minimalismpicsRenewed/static/js/runtime-main.cfbbda35.js.map",
     "static/css/2.7fda82d0.chunk.css": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css",
     "static/js/2.2131d145.chunk.js": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js",
     "static/js/2.2131d145.chunk.js.map": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js.map",
     "index.html": "/minimalismpicsRenewed/index.html",
-    "precache-manifest.75894ce9074df54be67454c3efc2a18e.js": "/minimalismpicsRenewed/precache-manifest.75894ce9074df54be67454c3efc2a18e.js",
+    "precache-manifest.eee4850a8f77b46127299951393e7b6b.js": "/minimalismpicsRenewed/precache-manifest.eee4850a8f77b46127299951393e7b6b.js",
     "service-worker.js": "/minimalismpicsRenewed/service-worker.js",
     "static/css/2.7fda82d0.chunk.css.map": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css.map",
     "static/css/main.a8896b9f.chunk.css.map": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.7fda82d0.chunk.css",
     "static/js/2.2131d145.chunk.js",
     "static/css/main.a8896b9f.chunk.css",
-    "static/js/main.a2b043c6.chunk.js"
+    "static/js/main.5bb40466.chunk.js"
   ]
 }

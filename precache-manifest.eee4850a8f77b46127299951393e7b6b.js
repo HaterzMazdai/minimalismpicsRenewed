@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0704edc579ebccde85dddf4bf60695cd",
+    "revision": "ab4d01514adfc609b4c23ef9a46389d9",
     "url": "/minimalismpicsRenewed/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css"
   },
   {
-    "revision": "5d89b6d475578eb90328",
+    "revision": "f0188741a43fdd41242a",
     "url": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5d89b6d475578eb90328",
-    "url": "/minimalismpicsRenewed/static/js/main.a2b043c6.chunk.js"
+    "revision": "f0188741a43fdd41242a",
+    "url": "/minimalismpicsRenewed/static/js/main.5bb40466.chunk.js"
   },
   {
     "revision": "beac6dead78bd2a8618d",
