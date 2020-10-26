@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/minimalismpicsRenewed/precache-manifest.952cd091fcee1eab41fa308eb1f8004c.js"
+  "/minimalismpicsRenewed/precache-manifest.76c7784516189a826a211ce4e6a687fb.js"
 );
 
 self.addEventListener('message', (event) => {
