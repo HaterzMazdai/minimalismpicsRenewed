@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css",
-    "main.js": "/minimalismpicsRenewed/static/js/main.9d95025b.chunk.js",
-    "main.js.map": "/minimalismpicsRenewed/static/js/main.9d95025b.chunk.js.map",
+    "main.js": "/minimalismpicsRenewed/static/js/main.428b95a2.chunk.js",
+    "main.js.map": "/minimalismpicsRenewed/static/js/main.428b95a2.chunk.js.map",
     "runtime-main.js": "/minimalismpicsRenewed/static/js/runtime-main.cfbbda35.js",
     "runtime-main.js.map": "/minimalismpicsRenewed/static/js/runtime-main.cfbbda35.js.map",
     "static/css/2.7fda82d0.chunk.css": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css",
-    "static/js/2.98fa6142.chunk.js": "/minimalismpicsRenewed/static/js/2.98fa6142.chunk.js",
-    "static/js/2.98fa6142.chunk.js.map": "/minimalismpicsRenewed/static/js/2.98fa6142.chunk.js.map",
+    "static/js/2.2131d145.chunk.js": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js",
+    "static/js/2.2131d145.chunk.js.map": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js.map",
     "index.html": "/minimalismpicsRenewed/index.html",
-    "precache-manifest.b034dea0e2045059a30cfbbec83e13af.js": "/minimalismpicsRenewed/precache-manifest.b034dea0e2045059a30cfbbec83e13af.js",
+    "precache-manifest.0564bed0e98dbc8e501cffee726ec101.js": "/minimalismpicsRenewed/precache-manifest.0564bed0e98dbc8e501cffee726ec101.js",
     "service-worker.js": "/minimalismpicsRenewed/service-worker.js",
     "static/css/2.7fda82d0.chunk.css.map": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css.map",
     "static/css/main.a8896b9f.chunk.css.map": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css.map",
-    "static/js/2.98fa6142.chunk.js.LICENSE.txt": "/minimalismpicsRenewed/static/js/2.98fa6142.chunk.js.LICENSE.txt",
+    "static/js/2.2131d145.chunk.js.LICENSE.txt": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js.LICENSE.txt",
     "static/media/index.module.scss": "/minimalismpicsRenewed/static/media/arrowUp.0988918c.png",
     "static/media/App.scss": "/minimalismpicsRenewed/static/media/roboto-v20-latin_cyrillic-regular.f245f4a6.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.cfbbda35.js",
     "static/css/2.7fda82d0.chunk.css",
-    "static/js/2.98fa6142.chunk.js",
+    "static/js/2.2131d145.chunk.js",
     "static/css/main.a8896b9f.chunk.css",
-    "static/js/main.9d95025b.chunk.js"
+    "static/js/main.428b95a2.chunk.js"
   ]
 }
