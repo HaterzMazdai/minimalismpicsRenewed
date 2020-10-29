@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "72d2955e059073fb4ff7f4fd657bd66d",
+    "revision": "82e7f92c64f67b4f0c43b65209d02688",
     "url": "/minimalismpicsRenewed/index.html"
   },
   {
-    "revision": "208f4632d8e17c1ef928",
+    "revision": "868f92b7798c3df4a7e6",
     "url": "/minimalismpicsRenewed/static/css/2.7fda82d0.chunk.css"
   },
   {
-    "revision": "29c0bccefa2084a3f86d",
-    "url": "/minimalismpicsRenewed/static/css/main.a8896b9f.chunk.css"
+    "revision": "158ade24ed1e513c9eb5",
+    "url": "/minimalismpicsRenewed/static/css/main.e3445d2b.chunk.css"
   },
   {
-    "revision": "208f4632d8e17c1ef928",
-    "url": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js"
+    "revision": "868f92b7798c3df4a7e6",
+    "url": "/minimalismpicsRenewed/static/js/2.e8a1b0c1.chunk.js"
   },
   {
     "revision": "29eb69a08ea4198f7b46e1db8a3d5045",
-    "url": "/minimalismpicsRenewed/static/js/2.2131d145.chunk.js.LICENSE.txt"
+    "url": "/minimalismpicsRenewed/static/js/2.e8a1b0c1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "29c0bccefa2084a3f86d",
-    "url": "/minimalismpicsRenewed/static/js/main.428b95a2.chunk.js"
+    "revision": "158ade24ed1e513c9eb5",
+    "url": "/minimalismpicsRenewed/static/js/main.26e4551b.chunk.js"
   },
   {
     "revision": "beac6dead78bd2a8618d",
