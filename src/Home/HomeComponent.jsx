@@ -1,25 +1,30 @@
-import { message } from 'antd';
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Unsplash from 'unsplash-js';
 import styles from './index.module.scss'
 import PostComponent from './Post/PostComponent'
 import ScrollButtonComponent from './ScrollButton/ScrollButtonComponent'
+import {setPost, lazyErrorHandle} from '../utils/helpers'
+import AuthModalComponent from './AuthModal/AuthModalComponent'
 
 
 const HomeComponent = props => {
   
-
-  
   const reduxState = useSelector(state => state)
+
+  const token = window.localStorage.getItem('access_token')
+  
 
   const unsplash = new Unsplash({ 
     accessKey: 'LuPHM_pd_YAH00c9ssorJV5fYEc0rvK9X0ST1oIFV_s',
     secret: 'dt3IVL8Qv1F-V8J8IZqoYcqQCil1FTkBp0cjBqakaVY',
-    callbackUrl: 'https://haterzmazdai.github.io/minimalismpicsRenewed/auth'
+    callbackUrl: 'https://haterzmazdai.github.io/minimalismpicsRenewed/',
+    bearerToken: token || undefined
   });
 
   const [isLoaded, setLoaded] = useState(false)
+
+  const [isAuthModalVisible, setAuthModalVisible] = useState(false)
 
   const [isUpdating, setUpdating] = useState(false)
 
@@ -41,6 +46,20 @@ const HomeComponent = props => {
     posts: [],
     score: 0
   })
+
+  const likePost = (id, callback) => {
+    unsplash.auth.setBearerToken(token)
+    unsplash.photos.likePhoto(id)
+    .then(callback)
+    .catch(lazyErrorHandle)
+  }
+
+  const dislikePost = (id, callback) => {
+    unsplash.auth.setBearerToken(token)
+    unsplash.photos.unlikePhoto(id)
+    .then(callback)
+    .catch(lazyErrorHandle)
+  }
 
   useEffect(() => {
 
@@ -109,10 +128,7 @@ const HomeComponent = props => {
         if (isUpdating) {
           setUpdating(false)
         }
-      }).catch(e => {
-        message.error('Что-то пошло не так')
-        console.error(e)
-      }) 
+      }).catch(lazyErrorHandle) 
     }
 
     if (!isLoaded || isUpdating) {
@@ -160,6 +176,23 @@ const HomeComponent = props => {
       }
     }
 
+    const code = window.location.search.split('code=')[1]
+
+    if (code) {
+      unsplash.auth.userAuthentication(code)
+      .then(res => res.json())
+      .then(json => {
+        window.localStorage.setItem('access_token', json.access_token)
+        window.localStorage.removeItem('incognito')
+        window.location.assign(window.location.origin + window.location.pathname)
+      })
+      .catch(lazyErrorHandle)
+    }
+
+    if (!window.localStorage.getItem('incognito') && !token && !code) {
+      setAuthModalVisible(true)
+    }
+
     window.addEventListener('scroll', listener)
 
     return () => {
@@ -167,19 +200,26 @@ const HomeComponent = props => {
     }
   }, [])
 
+
   return (
     <> 
       {isScrollTopVisible ? (
         <ScrollButtonComponent/>
       ) : ""}
       {isLoaded ? (
-        <div className={styles.main} >
+        <div className={styles.main} 
+        >
           <div
             className={styles.column}
           >
             {firstColumn.posts.map((post, index) => {
               return (
-                <PostComponent post={post} index={index} key={post.id + index}  />
+                <PostComponent likePost={likePost} dislikePost={dislikePost} setPost={(liked, likes) => {
+                  setFirstColumn({
+                    ...firstColumn,
+                    posts: setPost(firstColumn.posts, post, liked, likes)
+                  })
+                }} setAuthModalVisible={setAuthModalVisible} post={post} index={index} key={post.id + index}  />
               )
             })}
           </div>
@@ -188,7 +228,12 @@ const HomeComponent = props => {
           >
             {secondColumn.posts.map((post, index) => {
               return (
-                <PostComponent post={post} index={index} key={post.id + index}  />
+                <PostComponent likePost={likePost} dislikePost={dislikePost} setPost={(liked, likes) => {
+                  setSecondColumn({
+                    ...secondColumn,
+                    posts: setPost(secondColumn.posts, post, liked, likes)
+                  })
+                }} setAuthModalVisible={setAuthModalVisible} post={post} index={index} key={post.id + index}  />
               )
             })}
           </div>
@@ -197,10 +242,33 @@ const HomeComponent = props => {
           >
             {thirdColumn.posts.map((post, index) => {
               return (
-                <PostComponent post={post} index={index}  key={post.id + index} />
+                <PostComponent likePost={likePost} dislikePost={dislikePost} setPost={(liked, likes) => {
+                  setThirdColumn({
+                    ...thirdColumn,
+                    posts: setPost(thirdColumn.posts, post, liked, likes)
+                  })
+                }} setAuthModalVisible={setAuthModalVisible} post={post} index={index}  key={post.id + index} />
               )
             })}
           </div>
+          <AuthModalComponent
+          visible={isAuthModalVisible}
+          onOk={() => {
+            const authenticationUrl = unsplash.auth.getAuthenticationUrl([
+              "public",
+              "write_likes"
+            ]);
+  
+            window.location.assign(authenticationUrl);
+          }}
+          onCancel={() => {
+            setAuthModalVisible(false)
+            if (!window.localStorage.getItem('incognito')) {
+              window.localStorage.setItem('incognito', true)
+            }
+          }}
+          />
+
         </div>
       ) : (
           ""

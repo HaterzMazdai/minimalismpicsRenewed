@@ -10,13 +10,6 @@ const SearchComponent = props => {
 	const [value, setValue] = useState('')
 
 
-	// const initiateTimer = (func, delay, arg) => {
-	// 	if (timerId) {
-	// 		clearTimeout(timerId)
-	// 	}
-	// 	setTimerId(setTimeout(func, delay, arg))
-	// }
-
 	return (
 		<Input
 		className={styles.input}
@@ -27,7 +20,7 @@ const SearchComponent = props => {
 			setValue(ev.target.value)
 		}}
 		allowClear
-		placeholder="Поиск по слову"
+		placeholder="Search by word"
 		suffix={
 			<SearchOutlined 
 			onClick={ev => {

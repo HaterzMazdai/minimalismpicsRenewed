@@ -1,12 +1,15 @@
 .post{
   background-color: transparent !important;
+  width: fit-content !important;
   .ant-modal-content{
     background-color: transparent !important;
     box-shadow: none !important;
+    width: fit-content !important;
   }
   .ant-modal-body{
     padding: 0 !important;
     display: flex;
+    width: fit-content !important;
     justify-content: center;
     background-color: transparent !important;
     box-shadow: none !important;
